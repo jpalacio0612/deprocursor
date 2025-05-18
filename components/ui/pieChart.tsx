@@ -2,20 +2,32 @@
 import { LabelList, Pie, PieChart } from "recharts";
 
 import {
-  ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
 
+interface ChartDataItem {
+  browser: string;
+  visitors: number;
+  fill: string;
+}
+
+interface ChartConfigItem {
+  label: string;
+  color?: string;
+}
+
+interface ChartConfig {
+  [key: string]: ChartConfigItem;
+}
+
 export function MyPieChart({
   chartData,
   chartConfig,
-}: // chartConfig,
-{
-  chartData: any;
-  chartConfig: any;
-  // chartConfig: any;
+}: {
+  chartData: ChartDataItem[];
+  chartConfig: ChartConfig;
 }) {
   return (
     <ChartContainer
